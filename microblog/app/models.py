@@ -4,6 +4,10 @@ from flask_login import UserMixin # UserMixin, class that includes generic imple
 from werkzeug.security import generate_password_hash, check_password_hash
 from hashlib import md5 # User avatar generator
 
+# When adding new columns to schema, run these commands after:
+# 1. flask db migrate -m "<Add relevant message here>"
+# 2. flask db upgrade
+
 class User(UserMixin, db.Model): 
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(64), index=True, unique=True)

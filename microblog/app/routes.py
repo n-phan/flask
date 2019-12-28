@@ -3,8 +3,8 @@ from flask import render_template, flash, redirect, url_for, request
 from flask_login import login_required, current_user, login_user, logout_user
 from werkzeug.urls import url_parse # provides netloc method, security against malicious url entries
 from app import application, db
-from app.forms import LoginForm, RegistrationForm, EditProfileForm
-from app.models import User
+from app.forms import LoginForm, RegistrationForm, EditProfileForm, PostForm
+from app.models import User, Post
 
 @application.before_request     # to be executed right before the view function
 def before_request():
@@ -12,21 +12,19 @@ def before_request():
         current_user.last_seen = datetime.utcnow()  # current_user identified from loader in models.py
         db.session.commit()
 
-@application.route('/')
-@application.route('/index')
+@application.route('/', methods=['GET', 'POST'])
+@application.route('/index', methods=['GET', 'POST'])
 @login_required    # requires user to be logged in, redirects otherwise
 def index():
-    posts = [
-        {
-            'author': {'username': 'user_1'},
-            'body': 'body_1'
-        },
-        {
-            'author': {'username': 'user_2'},
-            'body': 'body_2'
-        }
-    ]
-    return render_template('index.html', title='Home', posts=posts)
+    form = PostForm()
+    if form.validate_on_submit():
+        post = Post(body=form.post.data, author=current_user)
+        db.session.add(post)
+        db.session.commit()
+        flash('Your post is now live.')
+        return redirect(url_for('index'))
+    posts = current_user.followed_posts().all()
+    return render_template('index.html', title='Home', form=form, posts=posts)
 
 @application.route('/login', methods=['GET', 'POST'])
 def login():
@@ -132,3 +130,9 @@ def unfollow(username):
     db.session.commit()
     flash('You are no longer following {}.'.format(username))
     return redirect(url_for('user', username=username))
+
+@application.route('/explore')
+@login_required
+def explore():
+    posts = Post.query.order_by(Post.timestamp.desc()).all()
+    return render_template('index.html', title='Explore', posts=posts)

@@ -1,8 +1,11 @@
 from datetime import datetime
-from app import db, login
+from time import time
+from app import application, db, login
 from flask_login import UserMixin # UserMixin, class that includes generic implementations of methods needed for Flask-Login
 from werkzeug.security import generate_password_hash, check_password_hash
 from hashlib import md5 # User avatar generator
+
+import jwt
 
 # When adding new columns to schema, run these commands after:
 # 1. flask db migrate -m "<Add relevant message here>"
@@ -31,6 +34,19 @@ class User(UserMixin, db.Model):
         backref=db.backref('followers', lazy='dynamic'),    # defines how the relationship will be accessed from this
         lazy='dynamic')
 
+    def get_reset_password_token(self, expires_in=900):
+        return jwt.encode(
+            {'reset_password': self.id, 'exp': time() + expires_in}, \
+            application.config['SECRET_KEY'], algorithm='HS256').decode('utf-8')
+
+    @staticmethod
+    def verify_reset_password_token(token):
+        try:
+            id = jwt.decode(token, application.config['SECRET_KEY'], algorithm=['HS256'])['reset_password']
+        except:
+            return
+        return User.query.get(id)
+
     def followed_posts(self):
         # join: create a temporary table that combines data from posts and follower tables
         # filter: only keep entires that have this user as a follower
@@ -40,7 +56,6 @@ class User(UserMixin, db.Model):
         own = Post.query.filter_by(user_id=self.id)
 
         return followed.union(own).order_by(Post.timestamp.desc()) 
-
 
     def set_password(self, password):
         self.password_hash = generate_password_hash(password)

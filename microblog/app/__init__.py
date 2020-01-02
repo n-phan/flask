@@ -2,18 +2,20 @@ import os
 import logging 
 
 from flask import Flask
-from flask_sqlalchemy import SQLAlchemy
-from flask_migrate import Migrate
 from flask_login import LoginManager
+from flask_mail import Mail
+from flask_migrate import Migrate
+from flask_sqlalchemy import SQLAlchemy
 from logging.handlers import SMTPHandler, RotatingFileHandler
 from config import Config
 
 application = Flask(__name__)
 application.config.from_object(Config)  # File Configuration
-db = SQLAlchemy(application)            # Database Tool
-migrate = Migrate(application, db)      # Database Migration Tool
 login = LoginManager(application)       # Login Tool
 login.login_view = 'login'
+mail = Mail(application)                # Email Tool
+db = SQLAlchemy(application)            # Database Tool
+migrate = Migrate(application, db)      # Database Migration Tool
 
 # Error notification
 if not application.debug:

@@ -15,7 +15,7 @@ from config import Config
 application = Flask(__name__)
 application.config.from_object(Config)  # File Configuration
 babel = Babel(application)              # Language
-bootstrap = Bootstrap(application)
+bootstrap = Bootstrap(application)      # UI
 login = LoginManager(application)       # Login Tool
 login.login_view = 'login'
 login.login_message = _l('Please log in to access this page.')

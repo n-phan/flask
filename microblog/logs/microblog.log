@@ -57,3 +57,9 @@ Traceback (most recent call last):
 KeyError: 'nombre de usuario'
 2020-01-08 21:30:43,800 INFO: Microblog startup [in /Users/nathan/Desktop/Projects/flask/microblog/app/__init__.py:58]
 2020-01-08 21:33:26,842 INFO: Microblog startup [in /Users/nathan/Desktop/Projects/flask/microblog/app/__init__.py:58]
+2020-01-08 21:40:57,235 INFO: Microblog startup [in /Users/nathan/Desktop/Projects/flask/microblog/app/__init__.py:58]
+2020-01-08 21:41:15,730 INFO: Microblog startup [in /Users/nathan/Desktop/Projects/flask/microblog/app/__init__.py:58]
+2020-01-08 21:41:32,027 INFO: Microblog startup [in /Users/nathan/Desktop/Projects/flask/microblog/app/__init__.py:58]
+2020-01-08 21:42:21,272 INFO: Microblog startup [in /Users/nathan/Desktop/Projects/flask/microblog/app/__init__.py:58]
+2020-01-08 21:42:35,939 INFO: Microblog startup [in /Users/nathan/Desktop/Projects/flask/microblog/app/__init__.py:58]
+2020-01-08 21:42:44,681 INFO: Microblog startup [in /Users/nathan/Desktop/Projects/flask/microblog/app/__init__.py:58]

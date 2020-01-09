@@ -1,38 +1,56 @@
-2020-01-02 12:31:15,096 ERROR: Exception on /index [GET] [in /Users/nathanphan/Desktop/Projects/flask/microblog/venv/lib/python3.7/site-packages/flask/app.py:1891]
+2020-01-08 19:42:52,563 ERROR: Exception on /edit_profile [GET] [in /Users/nathan/Desktop/Projects/flask/microblog/venv/lib/python3.7/site-packages/flask/app.py:1891]
 Traceback (most recent call last):
-  File "/Users/nathanphan/Desktop/Projects/flask/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 2446, in wsgi_app
+  File "/Users/nathan/Desktop/Projects/flask/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
-  File "/Users/nathanphan/Desktop/Projects/flask/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 1951, in full_dispatch_request
+  File "/Users/nathan/Desktop/Projects/flask/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 1951, in full_dispatch_request
     rv = self.handle_user_exception(e)
-  File "/Users/nathanphan/Desktop/Projects/flask/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 1820, in handle_user_exception
+  File "/Users/nathan/Desktop/Projects/flask/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 1820, in handle_user_exception
     reraise(exc_type, exc_value, tb)
-  File "/Users/nathanphan/Desktop/Projects/flask/microblog/venv/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+  File "/Users/nathan/Desktop/Projects/flask/microblog/venv/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
     raise value
-  File "/Users/nathanphan/Desktop/Projects/flask/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 1949, in full_dispatch_request
+  File "/Users/nathan/Desktop/Projects/flask/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 1949, in full_dispatch_request
     rv = self.dispatch_request()
-  File "/Users/nathanphan/Desktop/Projects/flask/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 1935, in dispatch_request
+  File "/Users/nathan/Desktop/Projects/flask/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 1935, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "/Users/nathanphan/Desktop/Projects/flask/microblog/venv/lib/python3.7/site-packages/flask_login/utils.py", line 261, in decorated_view
+  File "/Users/nathan/Desktop/Projects/flask/microblog/venv/lib/python3.7/site-packages/flask_login/utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "/Users/nathanphan/Desktop/Projects/flask/microblog/app/routes.py", line 29, in index
-    page, application.config['POSTS_PER_PAGE', False])
-KeyError: ('POSTS_PER_PAGE', False)
-2020-01-02 12:31:56,111 INFO: Microblog startup [in /Users/nathanphan/Desktop/Projects/flask/microblog/app/__init__.py:49]
-2020-01-02 12:46:49,093 INFO: Microblog startup [in /Users/nathanphan/Desktop/Projects/flask/microblog/app/__init__.py:49]
-2020-01-02 12:49:17,140 INFO: Microblog startup [in /Users/nathanphan/Desktop/Projects/flask/microblog/app/__init__.py:49]
-2020-01-02 12:53:02,229 INFO: Microblog startup [in /Users/nathanphan/Desktop/Projects/flask/microblog/app/__init__.py:49]
-2020-01-02 12:59:55,459 INFO: Microblog startup [in /Users/nathanphan/Desktop/Projects/flask/microblog/app/__init__.py:49]
-2020-01-02 14:30:04,479 INFO: Microblog startup [in /Users/nathan/Desktop/Projects/flask/microblog/app/__init__.py:49]
-2020-01-02 14:30:14,554 INFO: Microblog startup [in /Users/nathan/Desktop/Projects/flask/microblog/app/__init__.py:49]
-2020-01-02 15:03:36,449 INFO: Microblog startup [in /Users/nathan/Desktop/Projects/flask/microblog/app/__init__.py:51]
-2020-01-02 15:04:02,557 INFO: Microblog startup [in /Users/nathan/Desktop/Projects/flask/microblog/app/__init__.py:51]
-2020-01-02 15:08:40,536 INFO: Microblog startup [in /Users/nathan/Desktop/Projects/flask/microblog/app/__init__.py:51]
-2020-01-02 15:45:17,119 INFO: Microblog startup [in /Users/nathan/Desktop/Projects/flask/microblog/app/__init__.py:51]
-2020-01-02 15:45:30,773 INFO: Microblog startup [in /Users/nathan/Desktop/Projects/flask/microblog/app/__init__.py:51]
-2020-01-02 15:45:53,664 INFO: Microblog startup [in /Users/nathan/Desktop/Projects/flask/microblog/app/__init__.py:51]
-2020-01-02 15:46:01,966 INFO: Microblog startup [in /Users/nathan/Desktop/Projects/flask/microblog/app/__init__.py:51]
-2020-01-02 15:46:12,680 INFO: Microblog startup [in /Users/nathan/Desktop/Projects/flask/microblog/app/__init__.py:51]
-2020-01-02 15:46:27,517 ERROR: Exception on /reset_password_request [POST] [in /Users/nathan/Desktop/Projects/flask/microblog/venv/lib/python3.7/site-packages/flask/app.py:1891]
+  File "/Users/nathan/Desktop/Projects/flask/microblog/app/routes.py", line 108, in edit_profile
+    return render_template('edit_profile.html', title='Edit Profile', form=form)
+  File "/Users/nathan/Desktop/Projects/flask/microblog/venv/lib/python3.7/site-packages/flask/templating.py", line 138, in render_template
+    ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "/Users/nathan/Desktop/Projects/flask/microblog/venv/lib/python3.7/site-packages/jinja2/environment.py", line 869, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "/Users/nathan/Desktop/Projects/flask/microblog/venv/lib/python3.7/site-packages/jinja2/environment.py", line 830, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "/Users/nathan/Desktop/Projects/flask/microblog/venv/lib/python3.7/site-packages/jinja2/environment.py", line 804, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "/Users/nathan/Desktop/Projects/flask/microblog/venv/lib/python3.7/site-packages/jinja2/loaders.py", line 125, in load
+    code = environment.compile(source, name, filename)
+  File "/Users/nathan/Desktop/Projects/flask/microblog/venv/lib/python3.7/site-packages/jinja2/environment.py", line 591, in compile
+    self.handle_exception(exc_info, source_hint=source_hint)
+  File "/Users/nathan/Desktop/Projects/flask/microblog/venv/lib/python3.7/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/nathan/Desktop/Projects/flask/microblog/venv/lib/python3.7/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "/Users/nathan/Desktop/Projects/flask/microblog/app/templates/edit_profile.html", line 6, in template
+    <div class="row">
+  File "/Users/nathan/Desktop/Projects/flask/microblog/venv/lib/python3.7/site-packages/jinja2/environment.py", line 497, in _parse
+    return Parser(self, source, name, encode_filename(filename)).parse()
+  File "/Users/nathan/Desktop/Projects/flask/microblog/venv/lib/python3.7/site-packages/jinja2/parser.py", line 901, in parse
+    result = nodes.Template(self.subparse(), lineno=1)
+  File "/Users/nathan/Desktop/Projects/flask/microblog/venv/lib/python3.7/site-packages/jinja2/parser.py", line 883, in subparse
+    rv = self.parse_statement()
+  File "/Users/nathan/Desktop/Projects/flask/microblog/venv/lib/python3.7/site-packages/jinja2/parser.py", line 130, in parse_statement
+    return getattr(self, 'parse_' + self.stream.current.value)()
+  File "/Users/nathan/Desktop/Projects/flask/microblog/venv/lib/python3.7/site-packages/jinja2/parser.py", line 300, in parse_import
+    self.stream.expect('name:as')
+  File "/Users/nathan/Desktop/Projects/flask/microblog/venv/lib/python3.7/site-packages/jinja2/lexer.py", line 384, in expect
+    self.name, self.filename)
+jinja2.exceptions.TemplateSyntaxError: expected token 'as', got 'row'
+2020-01-08 19:43:15,694 INFO: Microblog startup [in /Users/nathan/Desktop/Projects/flask/microblog/app/__init__.py:53]
+2020-01-08 19:48:30,972 INFO: Microblog startup [in /Users/nathan/Desktop/Projects/flask/microblog/app/__init__.py:53]
+2020-01-08 19:55:20,787 INFO: Microblog startup [in /Users/nathan/Desktop/Projects/flask/microblog/app/__init__.py:53]
+2020-01-08 19:55:28,474 ERROR: Exception on /user/user [GET] [in /Users/nathan/Desktop/Projects/flask/microblog/venv/lib/python3.7/site-packages/flask/app.py:1891]
 Traceback (most recent call last):
   File "/Users/nathan/Desktop/Projects/flask/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -46,15 +64,14 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "/Users/nathan/Desktop/Projects/flask/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 1935, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "/Users/nathan/Desktop/Projects/flask/microblog/app/routes.py", line 163, in reset_password_request
-    send_password_reset_email(user)
-  File "/Users/nathan/Desktop/Projects/flask/microblog/app/email.py", line 6, in send_password_reset_email
-    token = user.get_reset_password_token()
-  File "/Users/nathan/Desktop/Projects/flask/microblog/app/models.py", line 40, in get_reset_password_token
-    app.config['SECRET_KEY'], algorithm='HS256').decode('utf-8')
-NameError: name 'app' is not defined
-2020-01-02 15:47:10,781 INFO: Microblog startup [in /Users/nathan/Desktop/Projects/flask/microblog/app/__init__.py:51]
-2020-01-02 15:47:23,694 ERROR: Exception on /reset_password_request [POST] [in /Users/nathan/Desktop/Projects/flask/microblog/venv/lib/python3.7/site-packages/flask/app.py:1891]
+  File "/Users/nathan/Desktop/Projects/flask/microblog/venv/lib/python3.7/site-packages/flask_login/utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "/Users/nathan/Desktop/Projects/flask/microblog/app/routes.py", line 87, in user
+    posts = user.posts.order_by(POst.timestamp.desc()).paginate(
+NameError: name 'POst' is not defined
+2020-01-08 19:57:40,296 INFO: Microblog startup [in /Users/nathan/Desktop/Projects/flask/microblog/app/__init__.py:53]
+2020-01-08 20:04:21,173 INFO: Microblog startup [in /Users/nathan/Desktop/Projects/flask/microblog/app/__init__.py:53]
+2020-01-08 20:04:23,340 ERROR: Exception on /user/user [GET] [in /Users/nathan/Desktop/Projects/flask/microblog/venv/lib/python3.7/site-packages/flask/app.py:1891]
 Traceback (most recent call last):
   File "/Users/nathan/Desktop/Projects/flask/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -68,10 +85,9 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "/Users/nathan/Desktop/Projects/flask/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 1935, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "/Users/nathan/Desktop/Projects/flask/microblog/app/routes.py", line 163, in reset_password_request
-    send_password_reset_email(user)
-  File "/Users/nathan/Desktop/Projects/flask/microblog/app/email.py", line 8, in send_password_reset_email
-    sender=app.config['ADMINS'][0],
-NameError: name 'app' is not defined
-2020-01-02 15:47:49,791 INFO: Microblog startup [in /Users/nathan/Desktop/Projects/flask/microblog/app/__init__.py:51]
-2020-01-02 15:51:09,899 INFO: Microblog startup [in /Users/nathan/Desktop/Projects/flask/microblog/app/__init__.py:51]
+  File "/Users/nathan/Desktop/Projects/flask/microblog/venv/lib/python3.7/site-packages/flask_login/utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "/Users/nathan/Desktop/Projects/flask/microblog/app/routes.py", line 87, in user
+    posts = user.posts.order_by(POst.timestamp.desc()).paginate(
+NameError: name 'POst' is not defined
+2020-01-08 20:05:02,200 INFO: Microblog startup [in /Users/nathan/Desktop/Projects/flask/microblog/app/__init__.py:53]

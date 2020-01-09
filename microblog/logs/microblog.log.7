@@ -1,4 +1,4 @@
-2019-12-27 15:46:43,534 ERROR: Exception on /login [POST] [in /home/nphan/anaconda3/lib/python3.7/site-packages/flask/app.py:1891]
+2019-12-27 15:47:48,230 ERROR: Exception on / [GET] [in /home/nphan/anaconda3/lib/python3.7/site-packages/flask/app.py:1891]
 Traceback (most recent call last):
   File "/home/nphan/anaconda3/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1249, in _execute_context
     cursor, statement, parameters, context
@@ -17,16 +17,36 @@ Traceback (most recent call last):
     reraise(exc_type, exc_value, tb)
   File "/home/nphan/anaconda3/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
     raise value
-  File "/home/nphan/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1949, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/home/nphan/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1935, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "/home/nphan/Desktop/Projects/flask/microblog/app/routes.py", line 39, in login
-    user = User.query.filter_by(username=form.username.data).first()
-  File "/home/nphan/anaconda3/lib/python3.7/site-packages/sqlalchemy/orm/query.py", line 3240, in first
-    ret = list(self[0:1])
-  File "/home/nphan/anaconda3/lib/python3.7/site-packages/sqlalchemy/orm/query.py", line 3018, in __getitem__
-    return list(res)
+  File "/home/nphan/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1947, in full_dispatch_request
+    rv = self.preprocess_request()
+  File "/home/nphan/anaconda3/lib/python3.7/site-packages/flask/app.py", line 2241, in preprocess_request
+    rv = func()
+  File "/home/nphan/Desktop/Projects/flask/microblog/app/routes.py", line 11, in before_request
+    if current_user.is_authenticated:
+  File "/home/nphan/anaconda3/lib/python3.7/site-packages/werkzeug/local.py", line 348, in __getattr__
+    return getattr(self._get_current_object(), name)
+  File "/home/nphan/anaconda3/lib/python3.7/site-packages/werkzeug/local.py", line 307, in _get_current_object
+    return self.__local()
+  File "/home/nphan/anaconda3/lib/python3.7/site-packages/flask_login/utils.py", line 26, in <lambda>
+    current_user = LocalProxy(lambda: _get_user())
+  File "/home/nphan/anaconda3/lib/python3.7/site-packages/flask_login/utils.py", line 335, in _get_user
+    current_app.login_manager._load_user()
+  File "/home/nphan/anaconda3/lib/python3.7/site-packages/flask_login/login_manager.py", line 359, in _load_user
+    return self.reload_user()
+  File "/home/nphan/anaconda3/lib/python3.7/site-packages/flask_login/login_manager.py", line 321, in reload_user
+    user = self.user_callback(user_id)
+  File "/home/nphan/Desktop/Projects/flask/microblog/app/models.py", line 82, in load_user
+    return User.query.get(int(id))
+  File "/home/nphan/anaconda3/lib/python3.7/site-packages/sqlalchemy/orm/query.py", line 959, in get
+    return self._get_impl(ident, loading.load_on_pk_identity)
+  File "/home/nphan/anaconda3/lib/python3.7/site-packages/sqlalchemy/orm/query.py", line 1069, in _get_impl
+    return db_load_fn(self, primary_key_identity)
+  File "/home/nphan/anaconda3/lib/python3.7/site-packages/sqlalchemy/orm/loading.py", line 282, in load_on_pk_identity
+    return q.one()
+  File "/home/nphan/anaconda3/lib/python3.7/site-packages/sqlalchemy/orm/query.py", line 3300, in one
+    ret = self.one_or_none()
+  File "/home/nphan/anaconda3/lib/python3.7/site-packages/sqlalchemy/orm/query.py", line 3269, in one_or_none
+    ret = list(self)
   File "/home/nphan/anaconda3/lib/python3.7/site-packages/sqlalchemy/orm/query.py", line 3342, in __iter__
     return self._execute_and_instances(context)
   File "/home/nphan/anaconda3/lib/python3.7/site-packages/sqlalchemy/orm/query.py", line 3367, in _execute_and_instances
@@ -52,66 +72,9 @@ Traceback (most recent call last):
 sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: user
 [SQL: SELECT user.id AS user_id, user.username AS user_username, user.email AS user_email, user.password_hash AS user_password_hash, user.about_me AS user_about_me, user.last_seen AS user_last_seen 
 FROM user 
-WHERE user.username = ?
- LIMIT ? OFFSET ?]
-[parameters: ('username', 1, 0)]
+WHERE user.id = ?]
+[parameters: (3,)]
 (Background on this error at: http://sqlalche.me/e/e3q8)
-2019-12-27 15:46:52,760 ERROR: Exception on /login [POST] [in /home/nphan/anaconda3/lib/python3.7/site-packages/flask/app.py:1891]
-Traceback (most recent call last):
-  File "/home/nphan/anaconda3/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1249, in _execute_context
-    cursor, statement, parameters, context
-  File "/home/nphan/anaconda3/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 580, in do_execute
-    cursor.execute(statement, parameters)
-sqlite3.OperationalError: no such table: user
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "/home/nphan/anaconda3/lib/python3.7/site-packages/flask/app.py", line 2446, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/home/nphan/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1951, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "/home/nphan/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1820, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "/home/nphan/anaconda3/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
-    raise value
-  File "/home/nphan/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1949, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/home/nphan/anaconda3/lib/python3.7/site-packages/flask/app.py", line 1935, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "/home/nphan/Desktop/Projects/flask/microblog/app/routes.py", line 39, in login
-    user = User.query.filter_by(username=form.username.data).first()
-  File "/home/nphan/anaconda3/lib/python3.7/site-packages/sqlalchemy/orm/query.py", line 3240, in first
-    ret = list(self[0:1])
-  File "/home/nphan/anaconda3/lib/python3.7/site-packages/sqlalchemy/orm/query.py", line 3018, in __getitem__
-    return list(res)
-  File "/home/nphan/anaconda3/lib/python3.7/site-packages/sqlalchemy/orm/query.py", line 3342, in __iter__
-    return self._execute_and_instances(context)
-  File "/home/nphan/anaconda3/lib/python3.7/site-packages/sqlalchemy/orm/query.py", line 3367, in _execute_and_instances
-    result = conn.execute(querycontext.statement, self._params)
-  File "/home/nphan/anaconda3/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 988, in execute
-    return meth(self, multiparams, params)
-  File "/home/nphan/anaconda3/lib/python3.7/site-packages/sqlalchemy/sql/elements.py", line 287, in _execute_on_connection
-    return connection._execute_clauseelement(self, multiparams, params)
-  File "/home/nphan/anaconda3/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1107, in _execute_clauseelement
-    distilled_params,
-  File "/home/nphan/anaconda3/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1253, in _execute_context
-    e, statement, parameters, cursor, context
-  File "/home/nphan/anaconda3/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1473, in _handle_dbapi_exception
-    util.raise_from_cause(sqlalchemy_exception, exc_info)
-  File "/home/nphan/anaconda3/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 398, in raise_from_cause
-    reraise(type(exception), exception, tb=exc_tb, cause=cause)
-  File "/home/nphan/anaconda3/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 152, in reraise
-    raise value.with_traceback(tb)
-  File "/home/nphan/anaconda3/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1249, in _execute_context
-    cursor, statement, parameters, context
-  File "/home/nphan/anaconda3/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 580, in do_execute
-    cursor.execute(statement, parameters)
-sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: user
-[SQL: SELECT user.id AS user_id, user.username AS user_username, user.email AS user_email, user.password_hash AS user_password_hash, user.about_me AS user_about_me, user.last_seen AS user_last_seen 
-FROM user 
-WHERE user.username = ?
- LIMIT ? OFFSET ?]
-[parameters: ('user', 1, 0)]
-(Background on this error at: http://sqlalche.me/e/e3q8)
-2019-12-27 15:47:45,739 INFO: Microblog startup [in /home/nphan/Desktop/Projects/flask/microblog/app/__init__.py:49]
+2019-12-27 15:47:55,846 INFO: Microblog startup [in /home/nphan/Desktop/Projects/flask/microblog/app/__init__.py:49]
+2019-12-27 15:50:27,015 INFO: Microblog startup [in /home/nphan/Desktop/Projects/flask/microblog/app/__init__.py:49]
+2019-12-27 15:50:31,990 INFO: Microblog startup [in /home/nphan/Desktop/Projects/flask/microblog/app/__init__.py:49]

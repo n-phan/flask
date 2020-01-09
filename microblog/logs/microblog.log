@@ -60,3 +60,4 @@ Traceback (most recent call last):
     raise BuildError(endpoint, values, method, self)
 werkzeug.routing.BuildError: Could not build url for endpoint 'user, username=post.author.username'. Did you mean 'reset_password_request' instead?
 2020-01-08 20:11:36,903 INFO: Microblog startup [in /Users/nathan/Desktop/Projects/flask/microblog/app/__init__.py:53]
+2020-01-08 20:20:48,588 INFO: Microblog startup [in /Users/nathan/Desktop/Projects/flask/microblog/app/__init__.py:55]

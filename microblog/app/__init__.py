@@ -6,6 +6,7 @@ from flask_bootstrap import Bootstrap
 from flask_login import LoginManager
 from flask_mail import Mail
 from flask_migrate import Migrate
+from flask_moment import Moment
 from flask_sqlalchemy import SQLAlchemy
 from logging.handlers import SMTPHandler, RotatingFileHandler
 from config import Config
@@ -18,6 +19,7 @@ login.login_view = 'login'
 mail = Mail(application)                # Email Tool
 db = SQLAlchemy(application)            # Database Tool
 migrate = Migrate(application, db)      # Database Migration Tool
+moment = Moment(application)
 
 # Error notification
 if not application.debug:

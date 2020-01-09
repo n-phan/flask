@@ -1,0 +1,164 @@
+# Spanish translations for PROJECT.
+# Copyright (C) 2020 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2020-01-08 21:07-0800\n"
+"PO-Revision-Date: 2020-01-08 21:18-0800\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+"Last-Translator: \n"
+"X-Generator: Poedit 2.2.4\n"
+
+#: app/__init__.py:21
+msgid "Please log in to access this page."
+msgstr "Inicia sesión para acceder a esta página."
+
+#: app/forms.py:8
+msgid "Username"
+msgstr "Nombre de usuario"
+
+#: app/forms.py:9
+msgid "Password"
+msgstr "Contraseña"
+
+#: app/forms.py:10
+msgid "Remember Me"
+msgstr "Recuérdame"
+
+#: app/forms.py:11 app/templates/login.html:5
+msgid "Sign In"
+msgstr "Registrarse"
+
+#: app/templates/404.html:4
+msgid "File Not Found"
+msgstr "Archivo no encontrado"
+
+#: app/templates/404.html:5 app/templates/500.html:6
+msgid "Back"
+msgstr "atrás"
+
+#: app/templates/500.html:4
+msgid "An unexpected error has occurred."
+msgstr "Ha ocurrido un error inesperado."
+
+#: app/templates/500.html:5
+msgid "The admin has been notified. Sorry for the inconvenience."
+msgstr "El administrador ha sido notificado. Lo siento por los inconvenientes ocasionados."
+
+#: app/templates/_post.html:5
+msgid "Post Author Avatar"
+msgstr "Avatar del autor de la publicación"
+
+#: app/templates/_post.html:15
+#, python-format
+msgid "%(username)s said %(when)s"
+msgstr "%(username)s dijo %(when)s"
+
+#: app/templates/base.html:12
+msgid "Welcome to Microblog"
+msgstr "Bienvenido a Microblog"
+
+#: app/templates/base.html:21
+msgid "Toggle Navigation"
+msgstr "Navegación de palanca"
+
+#: app/templates/base.html:30
+msgid "Home"
+msgstr "Hogar"
+
+#: app/templates/base.html:31
+msgid "Explore"
+msgstr "Explorar"
+
+#: app/templates/base.html:35
+msgid "Login"
+msgstr "Iniciar sesión"
+
+#: app/templates/base.html:37
+msgid "Profile"
+msgstr "Perfil"
+
+#: app/templates/base.html:38
+msgid "Logout"
+msgstr "Cerrar sesión"
+
+#: app/templates/edit_profile.html:5
+msgid "Edit Profile"
+msgstr "Editar perfil"
+
+#: app/templates/index.html:5
+#, python-format
+msgid "Hello, %(username)s."
+msgstr "Hola, %(username)s."
+
+#: app/templates/index.html:17 app/templates/user.html:34
+msgid "Newer Posts"
+msgstr "Las publicaciones más nuevas"
+
+#: app/templates/index.html:22 app/templates/user.html:39
+msgid "Older Posts"
+msgstr "Publicaciones anteriores"
+
+#: app/templates/login.html:12
+msgid "New User?"
+msgstr "¿Nuevo Usuario?"
+
+#: app/templates/login.html:12
+msgid "Click here to Register."
+msgstr "Pulse aquí para registrarse."
+
+#: app/templates/login.html:13
+msgid "Forgot your Password?"
+msgstr "¿Olvidaste tu contraseña?"
+
+#: app/templates/login.html:13
+msgid "Click to Reset It."
+msgstr "Haga clic para restablecerlo."
+
+#: app/templates/register.html:5
+msgid "Register"
+msgstr ""
+
+#: app/templates/reset_password.html:5
+msgid "Reset Your Password"
+msgstr "Registrarse"
+
+#: app/templates/user.html:8
+msgid "User"
+msgstr "Usuario"
+
+#: app/templates/user.html:13
+msgid "Last seen on"
+msgstr "Visto por última vez en"
+
+#: app/templates/user.html:16
+#, python-format
+msgid "%(count)d followers"
+msgstr "%(count)d seguidores"
+
+#: app/templates/user.html:16
+#, python-format
+msgid "%(count)d following"
+msgstr "%(count)d siguiente"
+
+#: app/templates/user.html:19
+msgid "Edit your profile"
+msgstr "Edite su perfil"
+
+#: app/templates/user.html:21
+msgid "Follow"
+msgstr "Seguir"
+
+#: app/templates/user.html:23
+msgid "Unfollow"
+msgstr "Dejar de seguir"

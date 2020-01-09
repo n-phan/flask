@@ -1,5 +1,6 @@
 from datetime import datetime
-from flask import render_template, flash, redirect, url_for, request
+from flask import render_template, flash, redirect, url_for, request, g
+from flask_babel import get_locale
 from flask_login import login_required, current_user, login_user, logout_user
 from werkzeug.urls import url_parse # provides netloc method, security against malicious url entries
 from app import application, db
@@ -12,6 +13,7 @@ def before_request():
     if current_user.is_authenticated:
         current_user.last_seen = datetime.utcnow()  # current_user identified from loader in models.py
         db.session.commit()
+    g.locale = str(get_locale())
 
 @application.route('/', methods=['GET', 'POST'])
 @application.route('/index', methods=['GET', 'POST'])

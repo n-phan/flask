@@ -1,4 +1,4 @@
-2020-01-08 19:42:52,563 ERROR: Exception on /edit_profile [GET] [in /Users/nathan/Desktop/Projects/flask/microblog/venv/lib/python3.7/site-packages/flask/app.py:1891]
+2020-01-08 20:57:03,994 ERROR: Exception on /explore [GET] [in /Users/nathan/Desktop/Projects/flask/microblog/venv/lib/python3.7/site-packages/flask/app.py:1891]
 Traceback (most recent call last):
   File "/Users/nathan/Desktop/Projects/flask/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -14,43 +14,46 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "/Users/nathan/Desktop/Projects/flask/microblog/venv/lib/python3.7/site-packages/flask_login/utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "/Users/nathan/Desktop/Projects/flask/microblog/app/routes.py", line 108, in edit_profile
-    return render_template('edit_profile.html', title='Edit Profile', form=form)
-  File "/Users/nathan/Desktop/Projects/flask/microblog/venv/lib/python3.7/site-packages/flask/templating.py", line 138, in render_template
-    ctx.app.jinja_env.get_or_select_template(template_name_or_list),
-  File "/Users/nathan/Desktop/Projects/flask/microblog/venv/lib/python3.7/site-packages/jinja2/environment.py", line 869, in get_or_select_template
-    return self.get_template(template_name_or_list, parent, globals)
-  File "/Users/nathan/Desktop/Projects/flask/microblog/venv/lib/python3.7/site-packages/jinja2/environment.py", line 830, in get_template
-    return self._load_template(name, self.make_globals(globals))
-  File "/Users/nathan/Desktop/Projects/flask/microblog/venv/lib/python3.7/site-packages/jinja2/environment.py", line 804, in _load_template
-    template = self.loader.load(self, name, globals)
-  File "/Users/nathan/Desktop/Projects/flask/microblog/venv/lib/python3.7/site-packages/jinja2/loaders.py", line 125, in load
-    code = environment.compile(source, name, filename)
-  File "/Users/nathan/Desktop/Projects/flask/microblog/venv/lib/python3.7/site-packages/jinja2/environment.py", line 591, in compile
-    self.handle_exception(exc_info, source_hint=source_hint)
+  File "/Users/nathan/Desktop/Projects/flask/microblog/app/routes.py", line 151, in explore
+    return render_template('index.html', title='Explore', posts=posts.items, next_url=next_url, prev_url=prev_url)
+  File "/Users/nathan/Desktop/Projects/flask/microblog/venv/lib/python3.7/site-packages/flask/templating.py", line 140, in render_template
+    ctx.app,
+  File "/Users/nathan/Desktop/Projects/flask/microblog/venv/lib/python3.7/site-packages/flask/templating.py", line 120, in _render
+    rv = template.render(context)
+  File "/Users/nathan/Desktop/Projects/flask/microblog/venv/lib/python3.7/site-packages/jinja2/asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "/Users/nathan/Desktop/Projects/flask/microblog/venv/lib/python3.7/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
   File "/Users/nathan/Desktop/Projects/flask/microblog/venv/lib/python3.7/site-packages/jinja2/environment.py", line 780, in handle_exception
     reraise(exc_type, exc_value, tb)
   File "/Users/nathan/Desktop/Projects/flask/microblog/venv/lib/python3.7/site-packages/jinja2/_compat.py", line 37, in reraise
     raise value.with_traceback(tb)
-  File "/Users/nathan/Desktop/Projects/flask/microblog/app/templates/edit_profile.html", line 6, in template
-    <div class="row">
-  File "/Users/nathan/Desktop/Projects/flask/microblog/venv/lib/python3.7/site-packages/jinja2/environment.py", line 497, in _parse
-    return Parser(self, source, name, encode_filename(filename)).parse()
-  File "/Users/nathan/Desktop/Projects/flask/microblog/venv/lib/python3.7/site-packages/jinja2/parser.py", line 901, in parse
-    result = nodes.Template(self.subparse(), lineno=1)
-  File "/Users/nathan/Desktop/Projects/flask/microblog/venv/lib/python3.7/site-packages/jinja2/parser.py", line 883, in subparse
-    rv = self.parse_statement()
-  File "/Users/nathan/Desktop/Projects/flask/microblog/venv/lib/python3.7/site-packages/jinja2/parser.py", line 130, in parse_statement
-    return getattr(self, 'parse_' + self.stream.current.value)()
-  File "/Users/nathan/Desktop/Projects/flask/microblog/venv/lib/python3.7/site-packages/jinja2/parser.py", line 300, in parse_import
-    self.stream.expect('name:as')
-  File "/Users/nathan/Desktop/Projects/flask/microblog/venv/lib/python3.7/site-packages/jinja2/lexer.py", line 384, in expect
-    self.name, self.filename)
-jinja2.exceptions.TemplateSyntaxError: expected token 'as', got 'row'
-2020-01-08 19:43:15,694 INFO: Microblog startup [in /Users/nathan/Desktop/Projects/flask/microblog/app/__init__.py:53]
-2020-01-08 19:48:30,972 INFO: Microblog startup [in /Users/nathan/Desktop/Projects/flask/microblog/app/__init__.py:53]
-2020-01-08 19:55:20,787 INFO: Microblog startup [in /Users/nathan/Desktop/Projects/flask/microblog/app/__init__.py:53]
-2020-01-08 19:55:28,474 ERROR: Exception on /user/user [GET] [in /Users/nathan/Desktop/Projects/flask/microblog/venv/lib/python3.7/site-packages/flask/app.py:1891]
+  File "/Users/nathan/Desktop/Projects/flask/microblog/app/templates/index.html", line 2, in top-level template code
+    {% import "bootstrap/wtf.html" as wtf %}
+  File "/Users/nathan/Desktop/Projects/flask/microblog/venv/lib/python3.7/site-packages/jinja2/environment.py", line 1005, in render
+    return concat(self.root_render_func(self.new_context(vars)))
+  File "/Users/nathan/Desktop/Projects/flask/microblog/app/templates/index.html", line 17, in root
+    <span aria-hidden="true">&larr;</span>{{ _('Newer Posts') }}
+  File "/Users/nathan/Desktop/Projects/flask/microblog/app/templates/base.html", line 14, in root
+    {% endblock %}
+  File "/Users/nathan/Desktop/Projects/flask/microblog/venv/lib/python3.7/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 10, in root
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  File "/Users/nathan/Desktop/Projects/flask/microblog/venv/lib/python3.7/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 20, in block_doc
+    {% block body -%}
+  File "/Users/nathan/Desktop/Projects/flask/microblog/venv/lib/python3.7/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 39, in block_html
+  File "/Users/nathan/Desktop/Projects/flask/microblog/venv/lib/python3.7/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 92, in block_body
+  File "/Users/nathan/Desktop/Projects/flask/microblog/app/templates/base.html", line 105, in block_content
+  File "/Users/nathan/Desktop/Projects/flask/microblog/app/templates/index.html", line 32, in block_app_content
+  File "/Users/nathan/Desktop/Projects/flask/microblog/venv/lib/python3.7/site-packages/jinja2/runtime.py", line 262, in call
+    return __obj(*args, **kwargs)
+  File "/Users/nathan/Desktop/Projects/flask/microblog/venv/lib/python3.7/site-packages/jinja2/ext.py", line 134, in _gettext_alias
+    return __context.call(__context.resolve('gettext'), *args, **kwargs)
+  File "/Users/nathan/Desktop/Projects/flask/microblog/venv/lib/python3.7/site-packages/jinja2/ext.py", line 143, in gettext
+    return rv % variables
+  File "/Users/nathan/Desktop/Projects/flask/microblog/venv/lib/python3.7/site-packages/markupsafe/__init__.py", line 102, in __mod__
+    return self.__class__(text_type.__mod__(self, arg))
+ValueError: incomplete format
+2020-01-08 20:57:06,569 ERROR: Exception on /explore [GET] [in /Users/nathan/Desktop/Projects/flask/microblog/venv/lib/python3.7/site-packages/flask/app.py:1891]
 Traceback (most recent call last):
   File "/Users/nathan/Desktop/Projects/flask/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -66,29 +69,42 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "/Users/nathan/Desktop/Projects/flask/microblog/venv/lib/python3.7/site-packages/flask_login/utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "/Users/nathan/Desktop/Projects/flask/microblog/app/routes.py", line 87, in user
-    posts = user.posts.order_by(POst.timestamp.desc()).paginate(
-NameError: name 'POst' is not defined
-2020-01-08 19:57:40,296 INFO: Microblog startup [in /Users/nathan/Desktop/Projects/flask/microblog/app/__init__.py:53]
-2020-01-08 20:04:21,173 INFO: Microblog startup [in /Users/nathan/Desktop/Projects/flask/microblog/app/__init__.py:53]
-2020-01-08 20:04:23,340 ERROR: Exception on /user/user [GET] [in /Users/nathan/Desktop/Projects/flask/microblog/venv/lib/python3.7/site-packages/flask/app.py:1891]
-Traceback (most recent call last):
-  File "/Users/nathan/Desktop/Projects/flask/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 2446, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/Users/nathan/Desktop/Projects/flask/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 1951, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "/Users/nathan/Desktop/Projects/flask/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 1820, in handle_user_exception
+  File "/Users/nathan/Desktop/Projects/flask/microblog/app/routes.py", line 151, in explore
+    return render_template('index.html', title='Explore', posts=posts.items, next_url=next_url, prev_url=prev_url)
+  File "/Users/nathan/Desktop/Projects/flask/microblog/venv/lib/python3.7/site-packages/flask/templating.py", line 140, in render_template
+    ctx.app,
+  File "/Users/nathan/Desktop/Projects/flask/microblog/venv/lib/python3.7/site-packages/flask/templating.py", line 120, in _render
+    rv = template.render(context)
+  File "/Users/nathan/Desktop/Projects/flask/microblog/venv/lib/python3.7/site-packages/jinja2/asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "/Users/nathan/Desktop/Projects/flask/microblog/venv/lib/python3.7/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/Users/nathan/Desktop/Projects/flask/microblog/venv/lib/python3.7/site-packages/jinja2/environment.py", line 780, in handle_exception
     reraise(exc_type, exc_value, tb)
-  File "/Users/nathan/Desktop/Projects/flask/microblog/venv/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
-    raise value
-  File "/Users/nathan/Desktop/Projects/flask/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 1949, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/Users/nathan/Desktop/Projects/flask/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 1935, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "/Users/nathan/Desktop/Projects/flask/microblog/venv/lib/python3.7/site-packages/flask_login/utils.py", line 261, in decorated_view
-    return func(*args, **kwargs)
-  File "/Users/nathan/Desktop/Projects/flask/microblog/app/routes.py", line 87, in user
-    posts = user.posts.order_by(POst.timestamp.desc()).paginate(
-NameError: name 'POst' is not defined
-2020-01-08 20:05:02,200 INFO: Microblog startup [in /Users/nathan/Desktop/Projects/flask/microblog/app/__init__.py:53]
-2020-01-08 20:09:13,714 INFO: Microblog startup [in /Users/nathan/Desktop/Projects/flask/microblog/app/__init__.py:53]
+  File "/Users/nathan/Desktop/Projects/flask/microblog/venv/lib/python3.7/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "/Users/nathan/Desktop/Projects/flask/microblog/app/templates/index.html", line 2, in top-level template code
+    {% import "bootstrap/wtf.html" as wtf %}
+  File "/Users/nathan/Desktop/Projects/flask/microblog/venv/lib/python3.7/site-packages/jinja2/environment.py", line 1005, in render
+    return concat(self.root_render_func(self.new_context(vars)))
+  File "/Users/nathan/Desktop/Projects/flask/microblog/app/templates/index.html", line 17, in root
+    <span aria-hidden="true">&larr;</span>{{ _('Newer Posts') }}
+  File "/Users/nathan/Desktop/Projects/flask/microblog/app/templates/base.html", line 14, in root
+    {% endblock %}
+  File "/Users/nathan/Desktop/Projects/flask/microblog/venv/lib/python3.7/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 10, in root
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  File "/Users/nathan/Desktop/Projects/flask/microblog/venv/lib/python3.7/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 20, in block_doc
+    {% block body -%}
+  File "/Users/nathan/Desktop/Projects/flask/microblog/venv/lib/python3.7/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 39, in block_html
+  File "/Users/nathan/Desktop/Projects/flask/microblog/venv/lib/python3.7/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 92, in block_body
+  File "/Users/nathan/Desktop/Projects/flask/microblog/app/templates/base.html", line 105, in block_content
+  File "/Users/nathan/Desktop/Projects/flask/microblog/app/templates/index.html", line 32, in block_app_content
+  File "/Users/nathan/Desktop/Projects/flask/microblog/venv/lib/python3.7/site-packages/jinja2/runtime.py", line 262, in call
+    return __obj(*args, **kwargs)
+  File "/Users/nathan/Desktop/Projects/flask/microblog/venv/lib/python3.7/site-packages/jinja2/ext.py", line 134, in _gettext_alias
+    return __context.call(__context.resolve('gettext'), *args, **kwargs)
+  File "/Users/nathan/Desktop/Projects/flask/microblog/venv/lib/python3.7/site-packages/jinja2/ext.py", line 143, in gettext
+    return rv % variables
+  File "/Users/nathan/Desktop/Projects/flask/microblog/venv/lib/python3.7/site-packages/markupsafe/__init__.py", line 102, in __mod__
+    return self.__class__(text_type.__mod__(self, arg))
+ValueError: incomplete format
